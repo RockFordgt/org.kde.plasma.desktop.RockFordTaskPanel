@@ -26,7 +26,8 @@ if (freeEdges["right"] == true) {
 }
 
 //panel.height = screenGeometry(panel.screen).height; // > 1024 ? 35 : 27
-panel.width = 45;
+panel.height = 55;
+panel.width = 55;
 
 var kickoff = panel.addWidget("org.kde.plasma.kickoff");
 kickoff.currentConfigGroup = ["Shortcuts"];
