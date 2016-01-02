@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright (C) 2015-2016 Radosław Wicik <radoslaw@wicik.pl>
+#
+# Licensed under GPL v3
 
 function usage(){
     echo -e "Install for current user only:"
