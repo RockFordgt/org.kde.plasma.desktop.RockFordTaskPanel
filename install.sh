@@ -18,7 +18,7 @@ SERVICE_DIR=kservices5
 if [ "$1" == "--all" ]; then
     prefix="/usr/share"
 
-elif
+else
     prefix="$HOME/.local/share/"
 fi
 
