@@ -65,6 +65,7 @@ digitalClock.writeConfig("showDate", "true");
 var systemLoad = panel.addWidget("org.kde.plasma.systemloadviewer");
 systemLoad.currentConfigGroup = ["General"];
 systemLoad.writeConfig("monitorType", "Compact Bar");
+systemLoad.writeConfig("cpuAllActivated", "true");
 
 panel.addWidget("org.kde.plasma.pager");
 
