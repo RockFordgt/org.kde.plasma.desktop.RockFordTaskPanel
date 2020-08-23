@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (C) 2015-2016 Radosław Wicik <radoslaw@wicik.pl>
+# Copyright (C) 2015-2020 Radosław Wicik <radoslaw@wicik.pl>
 #
 # Licensed under GPL v3
 
@@ -14,15 +14,19 @@ function usage(){
 
 TEMPLATE_DIR=plasma/layout-templates
 SERVICE_DIR=kservices5
+TEMPLATE_NAME=org.kde.plasma.desktop.RockFordTaskPanel
 
 if [ "$1" == "--all" ]; then
+    if [ `whoami` != "root" ]; then
+        echo "You must be a root"
+        exit 1
+    fi
     prefix="/usr/share"
-
 else
     prefix="$HOME/.local/share/"
 fi
 
-TEMPLATES=${prefix}/${TEMPLATES}
+TEMPLATES=${prefix}/${TEMPLATE_DIR}/${TEMPLATE_NAME}
 SERVICES=${prefix}/${SERVICE_DIR}
 
 mkdir -p ${TEMPLATES}
@@ -30,7 +34,8 @@ mkdir -p ${SERVICES}
 
 CURDIR=`pwd`
 
-ln -s ${CURDIR} ${TEMPLATES}
-ln -s ${CURDIR}/metadata.desktop ${SERVICES}/plasma-layout-template-${CURDIR##*/}.desktop
+cp -R contents ${TEMPLATES}
+cp metadata.desktop ${TEMPLATES}
+cp metadata.desktop ${SERVICES}/plasma-layout-template-${TEMPLATE_NAME}.desktop
 
 
